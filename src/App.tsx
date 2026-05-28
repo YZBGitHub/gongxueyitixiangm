@@ -12,16 +12,23 @@ function Header({ role, setRole }: { role: 'teacher' | 'student', setRole: (v: '
     <header className="h-[60px] bg-white flex items-center justify-between px-6 border-b border-gray-100 shrink-0 shadow-sm z-10 relative">
       <div className="flex items-center">
         {/* Logo */}
-        <div className="flex items-center gap-2 mr-10 cursor-pointer">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5 19L11 5H15L9 19H5Z" fill="#6366f1"/>
-            <path d="M15 19L21 5H17L11 19H15Z" fill="#3b82f6"/>
-            <circle cx="5" cy="5" r="2" fill="#f43f5e" />
-          </svg>
-          <div className="flex flex-col justify-center h-full leading-none">
-            <span className="font-bold text-[#1e3a8a] text-xs italic tracking-widest relative top-[2px]">UUSIMA</span>
-            <span className="font-bold text-gray-800 text-[15px]">智慧教学实验平台</span>
+        <div className="flex items-center gap-3 mr-10 cursor-pointer">
+          <div className="flex flex-col items-center justify-center">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#fb7185" />
+                  <stop offset="25%" stopColor="#a855f7" />
+                  <stop offset="50%" stopColor="#1e3a8a" />
+                  <stop offset="75%" stopColor="#0ea5e9" />
+                  <stop offset="100%" stopColor="#06b6d4" />
+                </linearGradient>
+              </defs>
+              <path d="M 6 22 L 15 6 L 15 26 L 24 10" stroke="url(#logo-grad)" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <span className="font-extrabold text-[10px] italic tracking-wider mt-0.5 bg-clip-text text-transparent bg-gradient-to-r from-purple-700 via-blue-600 to-cyan-500">UUSIMA</span>
           </div>
+          <span className="font-bold text-[#1e295a] text-[19px] tracking-wide ml-1">智慧教学实验平台</span>
         </div>
         
         {/* Nav Links */}
@@ -42,20 +49,6 @@ function Header({ role, setRole }: { role: 'teacher' | 'student', setRole: (v: '
            <button onClick={() => setRole('teacher')} className={`px-3 py-1 text-[12px] rounded-md transition-all ${role === 'teacher' ? 'bg-white shadow text-blue-600 font-medium' : 'text-gray-500 hover:text-gray-700'}`}>教师端</button>
         </div>
 
-        {role === 'student' && (
-           <button className="text-gray-500 hover:text-blue-600 flex flex-col items-center gap-0.5 px-2">
-             <UserPlus className="w-4 h-4" />
-             <span className="text-[10px]">注册账号</span>
-           </button>
-        )}
-
-        <button className="text-blue-500 hover:text-blue-600 bg-blue-50 p-1.5 rounded-full ml-1">
-          <Bot className="w-5 h-5" />
-        </button>
-        <button className="text-gray-600 hover:text-gray-800 flex items-center gap-1 border border-gray-200 p-1 px-1.5 rounded">
-          <Globe className="w-4 h-4" />
-          <span className="text-[10px] font-bold">En</span>
-        </button>
         <a href="#" className="text-blue-600 text-[14px] font-medium tracking-wide">我的主页</a>
         <div className="flex items-center gap-1 text-[14px] text-gray-700 cursor-pointer hover:text-gray-900 ml-2">
           {role === 'teacher' ? '杨老师' : '杨振邦'} <ChevronDown className="w-4 h-4 text-gray-400" />
